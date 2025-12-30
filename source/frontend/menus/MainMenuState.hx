@@ -1,5 +1,6 @@
 package frontend.menus;
 
+import flixel.util.FlxColor;
 import backend.overwrites.Sprite;
 import backend.overwrites.State;
 
@@ -16,22 +17,15 @@ class MainMenuState extends State
 		logo.y -= logo.height * 0.5;
 		add(logo);
 
-		play.addLabeledFunction('scaleAndPosition', function(args:Map<String, Dynamic>)
-		{
-			play.scale_offset = args.get('scale_offset');
-			play.resetScale();
-
-			play.screenCenter();
-			play.y += play.height * 0.5;
-		});
-
+		play.screenCenter();
+		play.y += play.height * 0.5;
 		play.on_mouse_overlap.add(function()
 		{
-			play.runLabeledFunction('scaleAndPosition', ['scale_offset' => 0.2]);
+			play.color = FlxColor.YELLOW;
 		});
 		play.on_mouse_unoverlap.add(function()
 		{
-			play.runLabeledFunction('scaleAndPosition', ['scale_offset' => 0]);
+			play.color = FlxColor.WHITE;
 		});
 		play.on_mouse_click_left.add(function()
 		{
