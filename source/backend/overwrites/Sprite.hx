@@ -9,24 +9,25 @@ class Sprite extends FlxSprite
 {
 	public static var SCALE:Float = 2.0;
 
-	public var scaleOffset:Float = 0.0;
+	public var scale_offset:Float = 0.0;
 
-	override public function new(simpleGraphic:FlxGraphicAsset, ?scaleOffset:Float = 0, ?x:Float, ?y:Float)
+	override public function new(graphic_simple:FlxGraphicAsset, ?scale_offset:Float = 0, ?x:Float, ?y:Float)
 	{
-		super(x, y, simpleGraphic);
+		super(x, y, graphic_simple);
 
-		this.scaleOffset = scaleOffset;
+		this.scale_offset = scale_offset;
 		resetScale();
 	}
 
 	public function resetScale()
 	{
-		scale.set(SCALE - scaleOffset, SCALE - scaleOffset);
+		scale.set(SCALE - scale_offset, SCALE - scale_offset);
 		updateHitbox();
 	}
 
-	public var onLeftClick:FlxSignal = new FlxSignal();
-	public var onRightClick:FlxSignal = new FlxSignal();
+	public var on_mouse_overlap:FlxSignal = new FlxSignal();
+	public var on_mouse_click_left:FlxSignal = new FlxSignal();
+	public var on_mouse_click_right:FlxSignal = new FlxSignal();
 
 	override function update(elapsed:Float)
 	{
@@ -34,10 +35,12 @@ class Sprite extends FlxSprite
 
 		if (FlxG.mouse.overlaps(this))
 		{
+			on_mouse_overlap.dispatch();
+
 			if (FlxG.mouse.justReleased)
-				onLeftClick.dispatch();
+				on_mouse_click_left.dispatch();
 			if (FlxG.mouse.justReleasedRight)
-				onRightClick.dispatch();
+				on_mouse_click_right.dispatch();
 		}
 	}
 }

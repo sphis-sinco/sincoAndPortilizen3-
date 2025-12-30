@@ -18,7 +18,7 @@ class MainMenuState extends State
 
 		play.screenCenter();
 		play.y += play.height * 0.5;
-		play.onLeftClick.add(function()
+		play.on_mouse_click_left.add(function()
 		{
 			switchState(new LevelSelectState());
 		});
