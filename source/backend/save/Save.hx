@@ -1,7 +1,6 @@
 package backend.save;
 
 import flixel.util.FlxSave;
-import flixel.FlxG;
 
 class Save
 {
