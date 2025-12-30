@@ -1,5 +1,6 @@
 package backend;
 
+import flixel.util.FlxSave;
 import lime.utils.Assets;
 
 class Global
