@@ -18,9 +18,13 @@ class InitState extends State
 
 		trace('Version: ' + Global.VERSION);
 		trace('Defines: ' + Global.DEFINES);
-		
+
 		FlxG.plugins.addPlugin(new MouseManager());
-		MouseManager.resetState();
+
+		FlxG.signals.postStateSwitch.add(function()
+		{
+			MouseManager.resetState();
+		});
 
 		saveInit();
 

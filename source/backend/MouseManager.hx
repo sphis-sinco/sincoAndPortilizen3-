@@ -24,6 +24,6 @@ class MouseManager extends FlxBasic
 	public static function setState(newstate:String)
 	{
 		state = newstate;
-		FlxG.mouse.load('mouse/$state'.getImageFile(), 1, -16, -16);
+		FlxG.mouse.load('mouse/$state'.getImageFile(), 1, -24, -24);
 	}
 }
