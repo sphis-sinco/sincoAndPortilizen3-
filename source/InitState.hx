@@ -43,7 +43,8 @@ class InitState extends State
 			NewSave.save.bind('SAP3-release', 'Macohi');
 		}
 
-		trace('Old save: ' + OldSave.save.data);
+		// I don't care anymore lol
+		// trace('Old save: ' + OldSave.save.data);
 		trace('New save: ' + NewSave.save.data);
 
 		NewSave.last_version = Global.VERSION;

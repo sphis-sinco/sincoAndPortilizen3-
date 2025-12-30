@@ -13,8 +13,8 @@ class Sprite extends FlxSprite
 	{
 		super(x, y, simpleGraphic);
 
-		resetScale();
         this.scaleOffset = scaleOffset;
+		resetScale();
 	}
 
 	public function resetScale()
@@ -22,4 +22,6 @@ class Sprite extends FlxSprite
 		scale.set(SCALE - scaleOffset, SCALE - scaleOffset);
 		updateHitbox();
 	}
+
+
 }

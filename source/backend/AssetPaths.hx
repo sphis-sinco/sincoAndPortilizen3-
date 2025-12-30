@@ -23,8 +23,8 @@ class AssetPaths
 		return getImagesPath('$path.${((extension != null) ? extension : EXTENSIONS.get('image'))}');
 
 	public static function getDataFileGeneral(path:String, extension:String):String
-		return getImagesPath('$path.$extension');
+		return getDataPath('$path.$extension');
 
-	public static function getTextFileGeneral(path:String, extension:String):String
-		return getImagesPath('$path.${((extension != null) ? extension : EXTENSIONS.get('text'))}');
+	public static function getDataFileText(path:String, ?extension:String):String
+		return getDataFileGeneral(path, ((extension != null) ? extension : EXTENSIONS.get('text')));
 }
