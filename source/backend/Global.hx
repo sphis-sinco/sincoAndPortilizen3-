@@ -11,24 +11,28 @@ class Global
 		return Assets.getText('version.txt');
 	}
 
-    public static var DEFINES(get, never):Array<String>;
-    
-    static function get_DEFINES():Array<String> {
-        var d = [];
+	public static var DEFINES(get, never):Array<String>;
 
-        // platforms
-        #if windows d.push('windows'); #end
-        #if macos d.push('macos'); #end
-        #if linux d.push('linux'); #end
-        #if html5 d.push('html5'); #end
-        #if hl d.push('hl'); #end
-        #if android d.push('android'); #end
-        #if ios d.push('ios'); #end
+	static function get_DEFINES():Array<String>
+	{
+		var d = [];
 
-        #if debug d.push('debug'); #end
+		// platforms
+		#if hl
+		d.push('hl');
+		#else
+		#if windows d.push('windows'); #end
+		#if macos d.push('macos'); #end
+		#if linux d.push('linux'); #end
+		#if html5 d.push('html5'); #end
+		#if android d.push('android'); #end
+		#if ios d.push('ios'); #end
+		#end
 
-        return d;
-    }
+		#if debug d.push('debug'); #end
+
+		return d;
+	}
 
 	public static var BUILD_DEBUG(get, never):Bool;
 
