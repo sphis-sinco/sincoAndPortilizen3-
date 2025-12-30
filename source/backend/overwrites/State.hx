@@ -24,7 +24,7 @@ class State extends FlxState
 
 	public function makeBaseText(text:String, alignment:FlxTextAlign = LEFT, ?fieldWidth = 0.0):FlxText
 	{
-		var new_text:FlxText = new FlxText(0, 0, fieldWidth, text, 16);
+		var new_text:FlxText = new FlxText(0, 0, fieldWidth, text, 8);
 		new_text.alignment = alignment;
 
 		return new_text;
