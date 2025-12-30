@@ -16,8 +16,23 @@ class MainMenuState extends State
 		logo.y -= logo.height * 0.5;
 		add(logo);
 
-		play.screenCenter();
-		play.y += play.height * 0.5;
+		play.addLabeledFunction('scaleAndPosition', function(args:Map<String, Dynamic>)
+		{
+			play.scale_offset = args.get('scale_offset');
+			play.resetScale();
+
+			play.screenCenter();
+			play.y += play.height * 0.5;
+		});
+
+		play.on_mouse_overlap.add(function()
+		{
+			play.runLabeledFunction('scaleAndPosition', ['scale_offset' => 0.2]);
+		});
+		play.on_mouse_unoverlap.add(function()
+		{
+			play.runLabeledFunction('scaleAndPosition', ['scale_offset' => 0]);
+		});
 		play.on_mouse_click_left.add(function()
 		{
 			switchState(new LevelSelectState());

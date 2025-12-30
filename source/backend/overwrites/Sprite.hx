@@ -25,7 +25,9 @@ class Sprite extends FlxSprite
 		updateHitbox();
 	}
 
+	public var did_mouse_overlap:Bool = true;
 	public var on_mouse_overlap:FlxSignal = new FlxSignal();
+	public var on_mouse_unoverlap:FlxSignal = new FlxSignal();
 	public var on_mouse_click_left:FlxSignal = new FlxSignal();
 	public var on_mouse_click_right:FlxSignal = new FlxSignal();
 
@@ -35,12 +37,21 @@ class Sprite extends FlxSprite
 
 		if (FlxG.mouse.overlaps(this))
 		{
+			did_mouse_overlap = true;
 			on_mouse_overlap.dispatch();
 
 			if (FlxG.mouse.justReleased)
 				on_mouse_click_left.dispatch();
 			if (FlxG.mouse.justReleasedRight)
 				on_mouse_click_right.dispatch();
+		}
+		else
+		{
+			if (did_mouse_overlap)
+			{
+				did_mouse_overlap = false;
+				on_mouse_unoverlap.dispatch();
+			}
 		}
 	}
 }
