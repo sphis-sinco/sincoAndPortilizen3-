@@ -1,6 +1,8 @@
 package backend;
 
-import flixel.util.FlxSave;
+import backend.controls.ControlHolder;
+import flixel.FlxG;
+import flixel.input.keyboard.FlxKey;
 import lime.utils.Assets;
 
 class Global
@@ -48,4 +50,15 @@ class Global
 	{
 		return DEFINES[0];
 	}
+
+	public static var controls:ControlHolder = new ControlHolder();
+
+	public static function keysPressed(keys:Array<FlxKey>):Bool
+		return FlxG.keys.anyPressed(keys);
+
+	public static function keysJustPressed(keys:Array<FlxKey>):Bool
+		return FlxG.keys.anyJustPressed(keys);
+
+	public static function keysJustReleased(keys:Array<FlxKey>):Bool
+		return FlxG.keys.anyJustReleased(keys);
 }
