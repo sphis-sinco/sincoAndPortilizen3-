@@ -1,5 +1,7 @@
 package;
 
+import backend.MouseManager;
+import flixel.FlxG;
 import flixel.util.FlxSave;
 import lime.app.Application;
 import backend.save.NewSave;
@@ -16,6 +18,8 @@ class InitState extends State
 
 		trace('Version: ' + Global.VERSION);
 		trace('Defines: ' + Global.DEFINES);
+		
+		FlxG.plugins.addPlugin(new MouseManager());
 
 		saveInit();
 
