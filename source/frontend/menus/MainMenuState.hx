@@ -1,5 +1,6 @@
 package frontend.menus;
 
+import backend.MouseManager;
 import flixel.util.FlxColor;
 import backend.overwrites.Sprite;
 import backend.overwrites.State;
@@ -19,14 +20,18 @@ class MainMenuState extends State
 
 		play.screenCenter();
 		play.y += play.height * 0.5;
+
 		play.on_mouse_overlap.add(function()
 		{
+			MouseManager.setState('pointer');
 			play.color = FlxColor.YELLOW;
 		});
 		play.on_mouse_unoverlap.add(function()
 		{
+			MouseManager.resetState();
 			play.color = FlxColor.WHITE;
 		});
+
 		play.on_mouse_click_left.add(function()
 		{
 			switchState(new LevelSelectState());

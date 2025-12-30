@@ -7,15 +7,7 @@ import flixel.FlxBasic;
 
 class MouseManager extends FlxBasic
 {
-	public var state:String = 'default';
-
-	public var state_graphic(get, never):FlxGraphic;
-
-	function get_state_graphic():FlxGraphic
-	{
-		var graphic:FlxGraphicAsset = 'mouse/$state'.getImageFile();
-		return graphic;
-	}
+	public static var state:String = 'default';
 
 	override public function new()
 	{
@@ -24,14 +16,14 @@ class MouseManager extends FlxBasic
         resetState();
 	}
 
-	public function resetState()
+	public static function resetState()
 	{
 		setState('default');
 	}
 
-	public function setState(state:String)
+	public static function setState(newstate:String)
 	{
-		this.state = state;
+		state = newstate;
 		FlxG.mouse.load('mouse/$state'.getImageFile());
 	}
 }

@@ -20,6 +20,7 @@ class InitState extends State
 		trace('Defines: ' + Global.DEFINES);
 		
 		FlxG.plugins.addPlugin(new MouseManager());
+		MouseManager.resetState();
 
 		saveInit();
 
