@@ -1,5 +1,6 @@
 package frontend.menus;
 
+import frontend.menus.levelselect.LevelSelectCharacter;
 import flixel.FlxG;
 import backend.overwrites.Sprite;
 import backend.overwrites.State;
@@ -10,11 +11,13 @@ class LevelSelectState extends State
 	public var console_side_left:Sprite = new Sprite('levelselect/console_side'.getImageFile());
 	public var console_side_right:Sprite = new Sprite('levelselect/console_side'.getImageFile());
 
+    public var console_char:LevelSelectCharacter = new LevelSelectCharacter('sinco');
+
 	override function create()
 	{
 		super.create();
 
-		for (console in [console_center, console_side_left, console_side_right])
+		for (console in [console_char, console_center, console_side_left, console_side_right])
 		{
             console.screenCenter();
             console.y = FlxG.height - console.height;
@@ -25,5 +28,7 @@ class LevelSelectState extends State
         console_side_left.x = 0;
         console_side_right.flipX = true;
         console_side_right.x = FlxG.width - console_side_right.width;
+
+        console_char.y -= console_char.height / 2;
 	}
 }
