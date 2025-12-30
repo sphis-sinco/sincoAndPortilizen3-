@@ -18,6 +18,7 @@ class MainMenuState extends State
 
 		play.screenCenter();
 		play.y += play.height * 0.5;
+		play.onLeftClick.add(function() {});
 		add(play);
 	}
 
