@@ -1,5 +1,7 @@
 package frontend.menus;
 
+import frontend.menus.levelselect.LevelSelectSymbol;
+import frontend.menus.levelselect.LevelSelectIcon;
 import frontend.menus.levelselect.LevelSelectCharacter;
 import flixel.FlxG;
 import backend.overwrites.Sprite;
@@ -12,6 +14,9 @@ class LevelSelectState extends State
 	public var console_side_right:Sprite = new Sprite('levelselect/console_side'.getImageFile());
 
     public var console_char:LevelSelectCharacter = new LevelSelectCharacter('sinco');
+
+	public var level_icon:LevelSelectIcon;
+	public var level_symbol:LevelSelectSymbol;
 
 	override function create()
 	{
