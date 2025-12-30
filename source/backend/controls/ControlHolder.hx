@@ -38,7 +38,7 @@ class ControlHolder
 	{
 		for (key => value in keybinds)
 		{
-			trace('Updated keybind: $key');
+			trace('Updated keybind: $key to $value');
 			Reflect.setField(this, key, new Control(value));
 		}
 	}

@@ -1,5 +1,6 @@
 package backend.save;
 
+import flixel.input.keyboard.FlxKey;
 import flixel.util.FlxSave;
 
 class NewSave
@@ -21,4 +22,12 @@ class NewSave
 
 	static function set_levels_complete(set:Array<String>):Array<String>
 		return Save.setField(save, 'levels_complete', set);
+
+	public static var keybinds(get, set):Map<String, Array<FlxKey>>;
+
+	static function get_keybinds():Map<String, Array<FlxKey>>
+		return Save.getField(save, 'keybinds');
+
+	static function set_keybinds(set:Map<String, Array<FlxKey>>):Map<String, Array<FlxKey>>
+		return Save.setField(save, 'keybinds', set);
 }

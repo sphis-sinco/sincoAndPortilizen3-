@@ -1,5 +1,6 @@
 package;
 
+import backend.controls.ControlHolder;
 import backend.MouseManager;
 import flixel.FlxG;
 import flixel.util.FlxSave;
@@ -18,7 +19,6 @@ class InitState extends State
 
 		trace('Version: ' + Global.VERSION);
 		trace('Defines: ' + Global.DEFINES);
-		// Global.controls.updateKeybinds();
 
 		FlxG.plugins.addPlugin(new MouseManager());
 
@@ -55,15 +55,20 @@ class InitState extends State
 
 		// I don't care anymore lol
 		// trace('Old save: ' + OldSave.save.data);
-		trace('New save: ' + NewSave.save.data);
 
 		NewSave.last_version = Global.VERSION;
 
 		NewSave.save.flush();
 
+		if (NewSave.keybinds != null)
+			ControlHolder.keybinds = NewSave.keybinds;
+		else
+			NewSave.keybinds = ControlHolder.keybinds;
+
 		Application.current.onExit.add(function(l)
 		{
 			NewSave.save.flush();
+			trace('Save data: ' + NewSave.save.data);
 		});
 	}
 }
