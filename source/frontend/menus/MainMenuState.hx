@@ -1,8 +1,8 @@
-package;
+package frontend.menus;
 
-import flixel.FlxState;
+import backend.overwrites.State;
 
-class PlayState extends FlxState
+class MainMenuState extends State
 {
 	override public function create()
 	{
