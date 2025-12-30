@@ -17,17 +17,29 @@ class ControlHolder
 		'game_right' => [RIGHT, D],
 	];
 
-	public var ui_cancel:Control = new Control(keybinds.get('ui_cancel'));
-	public var ui_left:Control = new Control(keybinds.get('ui_left'));
-	public var ui_down:Control = new Control(keybinds.get('ui_down'));
-	public var ui_up:Control = new Control(keybinds.get('ui_up'));
-	public var ui_right:Control = new Control(keybinds.get('ui_right'));
+	public var ui_cancel:Control;
+	public var ui_left:Control;
+	public var ui_down:Control;
+	public var ui_up:Control;
+	public var ui_right:Control;
 
-	public var game_pause:Control = new Control(keybinds.get('game_pause'));
-	public var game_left:Control = new Control(keybinds.get('game_left'));
-	public var game_down:Control = new Control(keybinds.get('game_down'));
-	public var game_up:Control = new Control(keybinds.get('game_up'));
-	public var game_right:Control = new Control(keybinds.get('game_right'));
+	public var game_pause:Control;
+	public var game_left:Control;
+	public var game_down:Control;
+	public var game_up:Control;
+	public var game_right:Control;
 
-	public function new() {}
+	public function new()
+	{
+		updateKeybinds();
+	}
+
+	public function updateKeybinds()
+	{
+		for (key => value in keybinds)
+		{
+			trace('Updated keybind: $key');
+			Reflect.setField(this, key, new Control(value));
+		}
+	}
 }

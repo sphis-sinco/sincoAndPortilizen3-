@@ -18,6 +18,7 @@ class InitState extends State
 
 		trace('Version: ' + Global.VERSION);
 		trace('Defines: ' + Global.DEFINES);
+		// Global.controls.updateKeybinds();
 
 		FlxG.plugins.addPlugin(new MouseManager());
 
