@@ -2,4 +2,5 @@
 Changes are in comparison to [2.0](https://macohi-sphis.itch.io/sinco-and-portilizen)
 
 ## General
-- Rebuilt from the ground-up
+- Rebuilt from the ground-up (obviously lol)
+    - I'm not gonna get into all the things that are different
